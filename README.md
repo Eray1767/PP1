@@ -71,16 +71,27 @@ Fill out the following table, mapping decimal numbers `0` through `15` to their 
 |---------|------------------------|
 | 0       | 0000                   |
 | 1       | 0001                   |
-| ...     | ...                    |
-| 15      | ????                   |
+| 2       | 0010                   |
+| 3       | 0011                   |
+| 4       | 0100                   |
+| 5       | 0101                   |
+| 6       | 0110                   |
+| 7       | 0111                   |
+| 8       | 1000                   |
+| 9       | 1001                   |
+| 10      | 1010                   |
+| 11      | 1011                   |
+| 12      | 1100                   |
+| 13      | 1101                   |
+| 14      | 1110                   |
+| 15      | 1111                   |
 
 **How many binary digits (bits) are needed?**
-
+4 Bits sind nötig
 Explain how to calculate the number of bits required:
-<details>
-<summary>Your Answer</summary>
-Erase this text and write your answer here!
-</details>
+Man kann mit n Bits 2 hoch n verschiedene Werte darstellen, wir brauchen nun genügend Kombinationen von 0 bis 15 dies sind dann 16 Werte insgesamt.
+2 hoch 4 ergibt 16 dies würde dann für unseren Beispiel genau reichen (0 - 15)
+Außerdem kann man dies mit dem Logarithmus berechnen log Basis 2 (16) = 4 Bits
 
 ---
 
@@ -107,14 +118,24 @@ Refer to the truth table of a 1-bit full adder:
 #### Your Task
 Create a truth table for a **2-bit adder** without carry-in. What are the possible inputs and outputs?
 
->   Your
->
->   table
->
->   goes
->
->   here!
-
+| A1 A0 | B1 B0 | Sum (S1 S0) | C out|
+|-------|-------|-------------|------|
+| 0  0  | 0  0  | 00          | 0    |
+| 0  0  | 0  1  | 01          | 0    |
+| 0  0  | 1  0  | 10          | 0    |
+| 0  0  | 1  1  | 11          | 0    |
+| 0  1  | 0  0  | 01          | 0    |
+| 0  1  | 0  1  | 10          | 0    |
+| 0  1  | 1  0  | 11          | 0    |
+| 0  1  | 1  1  | 00          | 1    |
+| 1  0  | 0  0  | 10          | 0    |
+| 1  0  | 0  1  | 11          | 0    |
+| 1  0  | 1  0  | 00          | 1    |
+| 1  0  | 1  1  | 01          | 1    |
+| 1  1  | 0  0  | 11          | 0    |
+| 1  1  | 0  1  | 00          | 1    |
+| 1  1  | 1  0  | 01          | 1    |
+| 1  1  | 1  1  | 10          | 1    |
 ---
 
 ### Task 3: Boolean Equations via Karnaugh Maps
@@ -128,12 +149,28 @@ Use the [K-Map method](https://github.com/STEMgraph/4b957490-badf-4264-b9f2-1b5a
 <details>
 <summary>The final functions</summary>
 
-Q<sub>0</sub> = .......
+Q<sub>0</sub> = A<sub>0</sub> + B<sub>0</sub>
 
-Q<sub>1</sub> = .......
+Q<sub>1</sub> =  A<sub>1</sub> + B<sub>1</sub> + (A<sub>0</sub> · B<sub>0</sub>)
 
-C<sub>out</sub> = .......
+C<sub>out</sub> = (A<sub>1</sub> · B<sub>1</sub>) + (A<sub>1</sub> · A<sub>0</sub> · B<sub>0</sub>) + (B<sub>1</sub> · A<sub>0</sub> · B<sub>0</sub>)
 
+Was sind die Vorteile von Karnaugh-Maps?*  
+Karnaugh-Maps ermöglichen eine visuelle und einfache Minimierung von booleschen Ausdrücken.  
+Sie sind schneller und weniger fehleranfällig als algebraische Methoden.
+
+Wie viele Zellen hat eine K-Map?  
+- 3 Eingänge → 2³ = 8 Zellen  
+- 4 Eingänge → 2⁴ = 16 Zellen
+
+Warum Gray-Code? 
+Damit sich benachbarte Felder nur in einem Bit unterscheiden, was das Gruppieren erleichtert.
+
+Welche Outputs sind am einfachsten?  
+Q₀ ist am einfachsten, da es nur eine XOR-Funktion ist.
+
+Größte Gruppe?  
+Typischerweise 4er-Gruppen bei 4 Variablen, je nach Verteilung der 1en.
 </details>
 
 ---
@@ -143,7 +180,7 @@ Using your Boolean equations, build a logic network in [CircuitVerse](https://ci
 
 <details>
 <summary>Your solution</summary>
-A share link to your solution goes here: <a href=".................">Link!</a>
+A share link to your solution goes here: https://circuitverse.org/simulator/aufgabe-4-f22a9414-6b75-42ea-93b0-d116a4a7518a 
 </details>
 
 ---
